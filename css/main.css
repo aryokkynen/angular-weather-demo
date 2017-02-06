@@ -1,0 +1,14 @@
+body {
+	font-family: monospace;	
+	background-image: url("../img/background.png");
+	background-repeat: repeat;
+}
+.weather-icon {
+
+  float:right;
+
+}
+
+.forecast div:nth-child(2) { 
+    display: none; 
+}
