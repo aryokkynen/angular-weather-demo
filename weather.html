@@ -22,24 +22,25 @@
 			<form class="form">
 				<input type="text" class="form-control" ng-model="town" placeholder="Enter town">
 			</form>
-			<h4 ng-show="town">Weather in {{ town }}, {{ country }}</h4>
+			<h4 ng-show="town">Weather in {{ city }}, {{ country }}</h4>
 
 			<section class="forecast">
 				<div ng-repeat-start="day in forecast" ng-if="$first" ng-show="town" class="today">	
-<pre>Today {{ date | date: 'EEEE dd.MM.yyyy' }} <code><img class="weather-icon" ng-src="{{icon}}"/></code>
+<pre>Today {{ date *1000 | date: 'EEEE dd.MM.yyyy' }} <code><img class="weather-icon" ng-src="{{icon}}"/></code>
 Weather: {{ weatherDescription }}
 Clouds: {{ clouds }}%
 Temp: {{ weather | number: 1 }}&deg;C
 Feels like: {{ feels | number: 2 }}&deg;C
 Humidity: {{ humidity }}%
 Wind speed: {{ windSpeed | number: 2 }} m/s
-Sunrise: {{ sunrise * 1000 | date:'HH:mm:ss Z' }}
-Sunset: {{ sunset * 1000 | date:'HH:mm:ss Z' }}
+Sunrise: {{ sunrise * 1000 | date:'HH:mm Z' }}
+Sunset: {{ sunset * 1000 | date:'HH:mm Z' }}
+<code><span style="font-size:10px" class="weather-icon">Last updated {{ date * 1000 | date: 'HH:mm' }}</span></code>
 </pre>
 				</div>
 				<div ng-repeat-end ng-show="town" ng-if="!first">
 <pre>Forecast {{day.dt *1000 | date: 'EEEE dd.MM.yyyy' }} <code><img class="weather-icon" ng-src="http://openweathermap.org/img/w/{{day.weather[0].icon}}.png"/></code>
-Weather: {{day.weather[0].main }} 
+Weather: {{day.weather[0].description }} 
 Temp: {{ day.temp.min | number: 1 }}&deg;C / {{ day.temp.max | number: 1 }}&deg;C
 Humidity: {{ day.humidity}}%
 Wind speed: {{ day.speed | number: 2 }} m/s

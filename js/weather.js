@@ -1,11 +1,10 @@
-var apikey = "ENTER YOUR API KEY HERE";
-var country = "Fi"; // Default value for first call
+var apikey = "YOUR API KEY HERE";
 angular.module('weather', [])
 .factory('openweather', function($http) {
     var getWeather = function(town) {
         return $http({
             method: 'JSONP',
-            url: 'http://api.openweathermap.org/data/2.5/weather?q='+town+','+country+'&units=metric&callback=JSON_CALLBACK&APPID='+apikey
+            url: 'http://api.openweathermap.org/data/2.5/weather?q='+ town +'&units=metric&callback=JSON_CALLBACK&APPID='+apikey
         });
     };
 
@@ -55,12 +54,13 @@ angular.module('weather', [])
                 $scope.icon = iconUrl;
                 $scope.weather = temp;
                 $scope.feels = feels;
-                $scope.weatherDescription = data.weather[0].main;
+                $scope.weatherDescription = data.weather[0].description;
                 $scope.humidity = data.main.humidity;
                 $scope.windSpeed = wind;
                 $scope.sunset = data.sys.sunset;
                 $scope.sunrise = data.sys.sunrise;
-                $scope.date = new Date();
+                $scope.date = data.dt;
+                $scope.city = data.name;
                 $scope.country = data.sys.country;
 
                 });
