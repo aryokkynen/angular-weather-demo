@@ -60,8 +60,7 @@ angular.module('weather', [])
                 $scope.sunset = data.sys.sunset;
                 $scope.sunrise = data.sys.sunrise;
                 $scope.date = data.dt;
-                $scope.city = data.name;
-                $scope.country = data.sys.country;
+                $scope.city = "Weather in " +data.name + ", "+ data.sys.country;
 
                 });
 
