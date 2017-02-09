@@ -1,6 +1,7 @@
 var apikey = "YOUR API KEY HERE";
 angular.module('weather', [])
 .factory('openweather', function($http) {
+    
     var getWeather = function(town) {
         return $http({
             method: 'JSONP',
@@ -34,7 +35,9 @@ angular.module('weather', [])
     var call;
 
     $scope.$watch('town', function(newtown) {
+        $scope.dataLoaded = true;
         if(newtown) {
+            $scope.dataLoaded = false;
             if(timeout) $timeout.cancel(timeout);
             timeout = $timeout(function() {
 
@@ -67,6 +70,7 @@ angular.module('weather', [])
                 call = "forecast"; // Get Forecast Data
                 openweather.event(newtown, call).success(function(forecastdata, status){
                     $scope.forecast = forecastdata.list;
+                    $scope.dataLoaded = true;
                 });
             }, 1000);
         }

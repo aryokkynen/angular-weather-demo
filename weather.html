@@ -5,6 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.js"></script>
 <script src="js/weather.js"></script>
 <link rel="stylesheet" href="css/main.css">
@@ -22,8 +23,12 @@
 			<form class="form">
 				<input type="text" class="form-control" ng-model="town" placeholder="Enter town">
 			</form>
+			<br>
+			<div class="well" ng-hide="dataLoaded">
+			  Loading... <span class="fa fa-spinner fa-spin"></span>
+			</div>
+			
 			<h4 ng-show="town">{{ city }}</h4>
-
 			<section class="forecast">
 				<div ng-repeat-start="day in forecast" ng-if="$first" ng-show="town" class="today">	
 <pre>Today {{ date *1000 | date: 'EEEE dd.MM.yyyy' }} <code><img class="weather-icon" ng-src="{{icon}}"/></code>
