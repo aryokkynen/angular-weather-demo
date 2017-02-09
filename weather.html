@@ -26,8 +26,6 @@
 			<div class="well" ng-hide="dataLoaded">
 			  Loading... <span class="fa fa-spinner fa-spin"></span>
 			</div>
-			
-			
 			<section class="forecast" ng-if="dataLoaded">
 				<h4 ng-show="town">{{ city }}</h4>
 				<div ng-repeat-start="day in forecast" ng-if="$first" ng-show="town" class="today">	
