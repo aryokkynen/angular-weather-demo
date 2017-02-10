@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="container">
-	<div class="jumbotron" style="background-color:#f4512e">
+	<div class="well">
 		<h1>Weather demo</h1>
 	</div>
 
@@ -35,7 +35,7 @@ Clouds: {{ clouds }}%
 Temp: {{ weather | number: 1 }}&deg;C
 Feels like: {{ feels | number: 2 }}&deg;C
 Humidity: {{ humidity }}%
-Wind speed: {{ windSpeed | number: 2 }} m/s
+Wind speed: {{ windSpeed | number: 2 }} m/s <code><i class="fa fa-arrow-up" aria-hidden="true" style="transform: rotate( {{day.deg}}deg);"></i></code>
 Sunrise: {{ sunrise * 1000 | date:'HH:mm Z' }}
 Sunset: {{ sunset * 1000 | date:'HH:mm Z' }}
 <code><span style="font-size:10px" class="weather-icon">Last updated {{ date * 1000 | date: 'HH:mm' }}</span></code>
@@ -46,7 +46,7 @@ Sunset: {{ sunset * 1000 | date:'HH:mm Z' }}
 Weather: {{day.weather[0].description }} 
 Temp: {{ day.temp.min | number: 1 }}&deg;C / {{ day.temp.max | number: 1 }}&deg;C
 Humidity: {{ day.humidity}}%
-Wind speed: {{ day.speed | number: 2 }} m/s
+Wind speed: {{ day.speed | number: 2 }} m/s <code><i class="fa fa-arrow-up" aria-hidden="true" style="transform: rotate( {{day.deg}}deg);"></i></code>
 </pre>
 				</div>
 			</section>

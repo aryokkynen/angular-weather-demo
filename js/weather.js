@@ -64,13 +64,12 @@ angular.module('weather', [])
                 $scope.sunrise = data.sys.sunrise;
                 $scope.date = data.dt;
                 $scope.city = "Weather in " +data.name + ", "+ data.sys.country;
-
                 });
 
                 call = "forecast"; // Get Forecast Data
                 openweather.event(newtown, call).success(function(forecastdata, status){
                     $scope.forecast = forecastdata.list;
-                    $scope.dataLoaded = true;
+					$scope.dataLoaded = true;
                 });
             }, 1000);
         }
